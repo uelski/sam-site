@@ -8,7 +8,7 @@
  * Controller of the clientApp
  */
 angular.module('clientApp')  
-  .controller('MainCtrl', ['$http', '$scope', function ($http, $scope) {
+  .controller('MainCtrl', ['$http', '$scope', '$window', function ($http, $scope, $window) {
     var req = $http.get('/api/data/buttons');
     var scope = this;
 
@@ -24,20 +24,29 @@ angular.module('clientApp')
 
     $http.get('/api/data/projects').then(function(res) {
       $scope.projects = res.data.projects;
-      console.log($scope.projects);
+      // console.log($scope.projects);
     });
 
     $scope.buttonFunction = function(obj) {
-      console.log('buttonfunction');
-      console.log(obj);
+      var index = obj.index;
+      var button = $scope.buttons[index];
+      if (button.clickFunction === 'github' || button.clickFunction === 'linkedin') {
+        $scope.gotoUrl(button.url);
+      } else {
+        $scope.openDialog(button.clickFunction);
+      }
     };
 
     $scope.githubFunction = function(obj) {
-      console.log(obj);
+      var index = obj.index;
+      var project = $scope.projects[index];
+      $scope.gotoUrl(project.githubUrl);
     };
 
     $scope.deployFunction = function(obj) {
-      console.log(obj);
+      var index = obj.index;
+      var project = $scope.projects[index];
+      $scope.gotoUrl(project.deployUrl);
     };
 
     $scope.openDialog = function(arg) {
@@ -45,7 +54,8 @@ angular.module('clientApp')
     };
 
     $scope.gotoUrl = function(url) {
-      console.log(url);
+      
+      $window.open(url, '_blank');
     };
 
   }]);

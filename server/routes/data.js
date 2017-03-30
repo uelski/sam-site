@@ -8,12 +8,14 @@ router.get('/buttons', function(req, res, next) {
       {
       	iconSrc: "/images/icon-github.svg",
       	iconLabel: "github",
-      	clickFunction: "github"
+      	clickFunction: "github",
+        url: "https://github.com/uelski"
       },
       {
       	iconSrc: "/images/icon-linkedin.svg",
       	iconLabel: "linkedin",
-      	clickFunction: "linkedin"
+      	clickFunction: "linkedin",
+        url: "https://www.linkedin.com/in/sam-vredenburgh-b5936641/"
       },
       {
       	iconSrc: "/images/icon-mail.svg",
@@ -40,7 +42,7 @@ router.get('/projects', function(req, res, next) {
         content: "Lorem ipsum dolor sit amet, vel ne affert democritum reprehendunt, persius tractatos suavitate has id, no tempor volutpat per. Ea quando oblique constituto sit, ludus legere deseruisse an qui. Virtute volutpat ut mel, labitur pertinax cum in, per an soleat contentiones.",
         github: "false",
         githubUrl: "",
-        deployUrl: "www.stdexpresscheck.com"
+        deployUrl: "https://www.stdexpresscheck.com/"
       },
       {
         iconSrc: "/images/icon-music.svg",
@@ -49,7 +51,7 @@ router.get('/projects', function(req, res, next) {
         content: "Lorem ipsum dolor sit amet, vel ne affert democritum reprehendunt, persius tractatos suavitate has id, no tempor volutpat per. Ea quando oblique constituto sit, ludus legere deseruisse an qui. Virtute volutpat ut mel, labitur pertinax cum in, per an soleat contentiones.",
         github: "true",
         githubUrl: "https://github.com/uelski",
-        deployUrl: "www.masoncos.com"
+        deployUrl: "http://www.masoncos.com/"
       },
       {
         iconSrc: "/images/icon-money.svg",
@@ -57,7 +59,7 @@ router.get('/projects', function(req, res, next) {
         title: "Finance Tracker",
         content: "Lorem ipsum dolor sit amet, vel ne affert democritum reprehendunt, persius tractatos suavitate has id, no tempor volutpat per. Ea quando oblique constituto sit, ludus legere deseruisse an qui. Virtute volutpat ut mel, labitur pertinax cum in, per an soleat contentiones.",
         github: "true",
-        githubUrl: "'https://github.com/uelski",
+        githubUrl: "https://github.com/uelski",
         deployUrl: "https://github.com/uelski"
       }
     ]
