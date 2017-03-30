@@ -8,21 +8,44 @@
  * Controller of the clientApp
  */
 angular.module('clientApp')  
-  .controller('MainCtrl', ['$http', function ($http) {
-    var req = $http.get('/api/users');
+  .controller('MainCtrl', ['$http', '$scope', function ($http, $scope) {
+    var req = $http.get('/api/data/buttons');
     var scope = this;
-    // arrow functions would be nice here
-    // but this tutorial is already really long
-    // so let's not mess with modifying grunt linting
+
     req.then(function (res) {
-      scope.awesomeUsers = res.data.users;
+      scope.buttons = res.data.buttons;
+      // console.log(scope.buttons);
+      $scope.buttons = res.data.buttons;
+      // console.log($scope.buttons);
     });
     req.catch(function (err) {
       console.log(err);
     });
-    scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+
+    $http.get('/api/data/projects').then(function(res) {
+      $scope.projects = res.data.projects;
+      console.log($scope.projects);
+    });
+
+    $scope.buttonFunction = function(obj) {
+      console.log('buttonfunction');
+      console.log(obj);
+    };
+
+    $scope.githubFunction = function(obj) {
+      console.log(obj);
+    };
+
+    $scope.deployFunction = function(obj) {
+      console.log(obj);
+    };
+
+    $scope.openDialog = function(arg) {
+      console.log(arg);
+    };
+
+    $scope.gotoUrl = function(url) {
+      console.log(url);
+    };
+
   }]);

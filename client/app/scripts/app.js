@@ -33,4 +33,26 @@ angular
     $mdThemingProvider.theme('default')
       .primaryPalette('blue-grey')
       .accentPalette('cyan');
-  });
+  })
+  .directive('fabTemplate', [function() {
+    return {
+      restrict: 'E',
+      scope: {
+        rippleColor: '@rippleColor',
+        button: '=',
+        buttonFunction: '&'
+      },
+      templateUrl: 'templates/directive-fab-template.html'
+    };
+  }])
+   .directive('projectsTemplate', [function() {
+    return {
+      restrict: 'E',
+      scope: {
+        project: '=',
+        githubFunction: '&',
+        deployFunction: '&'
+      },
+      templateUrl: 'templates/directive-projects-template.html'
+    };
+  }]);

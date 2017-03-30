@@ -1,0 +1,9 @@
+<div class="projectItem">
+	<div class="projectHeader md-headline"><md-icon md-svg-src="{{project.iconSrc}}" aria-label="project.iconLabel"></md-icon> {{project.title}}</div>
+	<div class="projectInfo">{{project.content}}</div>
+	<div class="btnContainer">
+	  <md-button ng-if="project.github === 'true'" ng-click="githubFunction()">View on Github</md-button>
+	  <md-button class="md-raised" ng-click="deployFunction()">Launch Website</md-button>
+	</div>
+	<hr>
+</div>

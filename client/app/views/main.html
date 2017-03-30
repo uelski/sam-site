@@ -12,15 +12,7 @@
     <div layout="row" class="content title md-headline">Web Developer</div>
   </div>
   <div flex-offset="60" class="fabContainer">
-    <md-button class="md-fab fabButton" md-ink-ripple="#00BCD4" aria-label="FAB">
-      <md-icon md-svg-src="/images/icon-github.svg" aria-label="github"></md-icon>
-    </md-button>
-    <md-button class="md-fab fabButton" md-ink-ripple="#00BCD4" aria-label="FAB">
-    </md-button>
-    <md-button class="md-fab fabButton" md-ink-ripple="#00BCD4" aria-label="FAB">
-    </md-button>
-    <md-button class="md-fab fabButton" md-ink-ripple="#00BCD4" aria-label="FAB">
-    </md-button>
+    <fab-template ng-repeat="button in buttons" ripple-color="#00BCD4"  button-function="buttonFunction({index: $index})" button="button"></fab-template>
   </div>
 </div>
 
@@ -43,33 +35,7 @@
   <div layout="column" id="projectSection" class="projectSection darkBackground">
     <div flex-offset="10">
       <div class="header md-display-1">Projects</div>
-      <div class="projectItem">
-        <div class="projectHeader md-headline"><i class="material-icons">done</i> STD Express Check</div>
-        <div class="projectInfo">Lorem ipsum dolor sit amet, vel ne affert democritum reprehendunt, persius tractatos suavitate has id, no tempor volutpat per. Ea quando oblique constituto sit, ludus legere deseruisse an qui. Virtute volutpat ut mel, labitur pertinax cum in, per an soleat contentiones.</div>
-        <div class="btnContainer">
-          <md-button>View on Github</md-button>
-          <md-button class="md-raised">Launch Website</md-button>
-        </div>
-        <hr>
-      </div>
-      <div class="projectItem">
-        <div class="projectHeader md-headline"><i class="material-icons">done</i> STD Express Check</div>
-        <div class="projectInfo">Lorem ipsum dolor sit amet, vel ne affert democritum reprehendunt, persius tractatos suavitate has id, no tempor volutpat per. Ea quando oblique constituto sit, ludus legere deseruisse an qui. Virtute volutpat ut mel, labitur pertinax cum in, per an soleat contentiones.</div>
-        <div class="btnContainer">
-          <md-button>View on Github</md-button>
-          <md-button class="md-raised">Launch Website</md-button>
-        </div>
-        <hr>
-      </div>
-      <div class="projectItem">
-        <div class="projectHeader md-headline"><i class="material-icons">done</i> STD Express Check</div>
-        <div class="projectInfo">Lorem ipsum dolor sit amet, vel ne affert democritum reprehendunt, persius tractatos suavitate has id, no tempor volutpat per. Ea quando oblique constituto sit, ludus legere deseruisse an qui. Virtute volutpat ut mel, labitur pertinax cum in, per an soleat contentiones.</div>
-        <div class="btnContainer">
-          <md-button>View on Github</md-button>
-          <md-button class="md-raised">Launch Website</md-button>
-        </div>
-        <hr>
-      </div>
+      <projects-template ng-repeat="project in projects" project="project" github-function="githubFunction({index: $index})" deploy-function="deployFunction({index: $index})"></projects-template>
     </div>  
   </div>
 
@@ -121,5 +87,12 @@
   <div layout="row" class="emptySectionContainer darkBackground">
 
   </div>
+</div>  
 
+<div layout="column" class="footer">
+  <div flex-offset="0" class="fabContainer">
+    <fab-template ng-repeat="button in buttons" ripple-color="#00BCD4"  button-function="buttonFunction({index: $index})" button="button"></fab-template>
+  </div>
 </div>
+
+

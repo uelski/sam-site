@@ -131,7 +131,7 @@ $fadedBlack: rgba(0,0,0,0.75);
     .projectHeader {
       @include fontMainBold;
       color: $fadedBlack;
-      i {
+      md-icon {
         font-size: 28px;
         background-color: white;
         padding: 24px;
@@ -192,9 +192,28 @@ $fadedBlack: rgba(0,0,0,0.75);
     width: 80%;
     margin: 0 auto;
     md-input-container {
-      width: 300px;
+      width: 70%;
     }
   }
+  md-card-actions {
+    .md-button {
+      font-size: 16px;
+      color: #2196F3;
+      padding-left: 10px;
+      padding-right: 10px;
+      @include fontMainBold;
+    }
+  }
+}
+
+.footer {
+  background-color: #37474F;
+
+  .fabContainer {
+    padding: 20px 0;
+    text-align: center;
+  }
+
 }
 
 .emptySectionContainer {
