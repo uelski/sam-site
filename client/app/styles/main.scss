@@ -223,5 +223,22 @@ $fadedBlack: rgba(0,0,0,0.75);
   background-color: $darkBackgroundColor;
 }
 
+.mdDialog {
+  .dialogContent {
+    padding: 20px;
+    .address {
+      margin-top: 10px;
+      @include fontMainBold;
+      font-size: 18px;
+    }
+  }
+  .md-button {
+    font-size: 16px;
+    color: #2196F3;
+    padding-left: 10px;
+    padding-right: 10px;
+    @include fontMainBold;
+  }
+}
 
 

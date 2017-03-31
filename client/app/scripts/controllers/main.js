@@ -8,7 +8,7 @@
  * Controller of the clientApp
  */
 angular.module('clientApp')  
-  .controller('MainCtrl', ['$http', '$scope', '$window', function ($http, $scope, $window) {
+  .controller('MainCtrl', ['$http', '$scope', '$window', '$mdDialog', function ($http, $scope, $window, $mdDialog) {
     var req = $http.get('/api/data/buttons');
     var scope = this;
 
@@ -50,12 +50,39 @@ angular.module('clientApp')
     };
 
     $scope.openDialog = function(arg) {
-      console.log(arg);
+      var templateUrl = '';
+      if (arg === 'mail') {
+        templateUrl = '/templates/dialog-email.html';
+      } else if (arg === 'call') {
+        templateUrl = '/templates/dialog-phone.html';
+      }
+
+      $mdDialog.show({
+        templateUrl: templateUrl,
+        parent: angular.element(document.body),
+        controller: 'MainCtrl',
+        clickOutsideToClose:true,
+      });
+
+
+    };
+
+    $scope.closeDialog = function() {
+      console.log('close dialog');
+      $mdDialog.hide();
     };
 
     $scope.gotoUrl = function(url) {
       
       $window.open(url, '_blank');
+    };
+
+    $scope.initiateEmail = function() {
+      $window.location.href = 'mailto:sam.vburgh@gmail.com';
+    };
+
+    $scope.initiateCall = function() {
+      $window.location.href = 'tel:+12032409108';
     };
 
   }]);
