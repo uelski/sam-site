@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var messages = [];
 
 /* GET button data. */
 router.get('/buttons', function(req, res, next) {  
@@ -30,6 +31,7 @@ router.get('/buttons', function(req, res, next) {
     ]
   })
 });
+
 
 /* GET project data. */
 router.get('/projects', function(req, res, next) {  
@@ -65,5 +67,21 @@ router.get('/projects', function(req, res, next) {
     ]
   })
 });
+
+router.post('/userMessage', function(req, res, next) {
+  // console.log(req.body);
+  var message = req.body;
+
+  messages.push(message);
+
+  res.json({});
+  
+});
+
+router.get('/userMessage', function(req, res, next) {
+  res.json({
+    messages: messages
+  })
+})
 
 module.exports = router;

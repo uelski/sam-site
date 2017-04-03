@@ -8,7 +8,7 @@
  * Controller of the clientApp
  */
 angular.module('clientApp')  
-  .controller('MainCtrl', ['$http', '$scope', '$window', '$mdDialog', function ($http, $scope, $window, $mdDialog) {
+  .controller('MainCtrl', ['$http', '$scope', '$rootScope', '$window', '$mdDialog', function ($http, $scope, $rootScope, $window, $mdDialog) {
     var req = $http.get('/api/data/buttons');
     var scope = this;
 
@@ -83,6 +83,112 @@ angular.module('clientApp')
 
     $scope.initiateCall = function() {
       $window.location.href = 'tel:+12032409108';
+    };
+
+    $scope.user = {
+      'name': '',
+      'email': '',
+      'subject': '',
+      'message': ''
+    };
+
+
+    $rootScope.$on('messageSuccess', function(e, args) {
+      if (args.event === 'success') {
+        $scope.user = {
+          'name': '',
+          'email': '',
+          'subject': '',
+          'message': ''
+        };
+      }
+    });
+
+
+    // $scope.showValidation = false;
+
+    // $scope.showSubmit = 'hi';
+    
+    $scope.submitForm = function() {
+      $scope.validateMessage = '';
+      if ($scope.user.name === '' ) {
+        // console.log($scope.user);
+        $scope.validateMessage = 'Name Required';
+        $scope.showValidation = true;
+        $scope.showSubmit = false;
+        $scope.submitDialog($scope.showSubmit, $scope.showValidation, $scope.validateMessage);
+      } else if ($scope.user.email === '') {
+        $scope.validateMessage = 'Email Required';
+        $scope.showValidation = true;
+        $scope.showSubmit = false;
+        $scope.submitDialog($scope.showSubmit, $scope.showValidation, $scope.validateMessage);
+      } else if ($scope.user.subject === '') {
+        $scope.validateMessage = 'Subject Required';
+        $scope.showValidation = true;
+        $scope.showSubmit = false;
+        $scope.submitDialog($scope.showSubmit, $scope.showValidation, $scope.validateMessage);
+      } else if ($scope.user.message === '') {
+        $scope.validateMessage = 'Message Required';
+        $scope.showValidation = true;
+        $scope.showSubmit = false;
+        $scope.submitDialog($scope.showSubmit, $scope.showValidation, $scope.validateMessage);
+      } else {
+        $scope.showValidation = false;
+        $scope.showSubmit = true;
+        $scope.submitDialog($scope.showSubmit, $scope.showValidation, $scope.validateMessage, $scope.user);
+
+      }
+      
+    };
+
+    $scope.submitDialog = function(submit, validate, message, user) {
+      
+      $mdDialog.show({
+        templateUrl: '/templates/dialog-submit.html',
+        parent: angular.element(document.body),
+        locals: {
+          validateMessage: message,
+          showValidation: validate,
+          showSubmit: submit,
+          user: user
+        },
+        controller: ['$scope', '$rootScope', 'validateMessage', 'showValidation', 'showSubmit', 'user', function($scope, $rootScope, validateMessage, showValidation, showSubmit) {
+          $scope.validateMessage = validateMessage;
+          $scope.showValidation = showValidation;
+          $scope.showSubmit = showSubmit;
+          $scope.user = user;
+
+          if ($scope.showSubmit === true) {
+            var req = $http.post('/api/data/userMessage', $scope.user);
+            req.then( function (res) {
+              // console.log(res.status);
+              if (res.status === 200) {
+                // console.log('success');
+                $scope.showSuccess = true;
+                $scope.showError = false;
+                $scope.showSubmit = false;
+                $scope.showValidation = false;
+                $rootScope.$emit('messageSuccess', {event:'success'} );
+              } else {
+                $scope.showError = true;
+                $scope.showSuccess = false;
+                $scope.showSubmit = false;
+                $scope.showValidation = false;
+              }
+            });
+          }
+
+          // $scope.postIt = function() {
+            
+          // };
+
+          $scope.closeDialog = function() {
+            
+            $mdDialog.hide();
+          };
+        }]
+      });
+
     };
 
   }]);

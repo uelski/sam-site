@@ -16,14 +16,14 @@
   </div>
 </div>
 
-<div layout="row" id="aboutSection" class="aboutSection">
-  <div layout="column" class="leftSection" flex-offset="10">
+<div layout="row" layout-xs="column" id="aboutSection" class="aboutSection">
+  <div layout="column" class="leftSection" flex-offset="10" flex-offset-xs="0">
     <img src="/images/document-icon.png">
     <div class="btnContainer">
       <a href="/downloads/Sam_Vredenburgh_Resume_Updated.pdf" target="_blank"><md-button class="md-raised"> Download Resume</md-button></a>
     </div>
   </div>
-  <div class="rightSection" flex-offset="10">
+  <div class="rightSection" flex-offset="10" flex-offset-xs="0" layout-align-xs="center center">
     <div class="header md-display-1">About Me:</div>
     <div class="content">
       Lorem ipsum dolor sit amet, vel ne affert democritum reprehendunt, persius tractatos suavitate has id, no tempor volutpat per. Ea quando oblique constituto sit, ludus legere deseruisse an qui. Virtute volutpat ut mel, labitur pertinax cum in, per an soleat contentiones. Nominavi perpetua dignissim cu nam, quaestio volutpat vis te. Eruditi rationibus mel ad, at corpora blandit constituto duo. Eum an exerci aliquam omittantur, euismod persecuti intellegebat cum at, qui commodo torquatos ei. Vix id nulla feugait, partem invidunt dignissim nam ut.
@@ -33,7 +33,7 @@
 
 <div style="position: relative;">
   <div layout="column" id="projectSection" class="projectSection darkBackground">
-    <div flex-offset="10">
+    <div flex-offset="10" flex-offset-xs="0">
       <div class="header md-display-1">Projects</div>
       <projects-template ng-repeat="project in projects" project="project" github-function="githubFunction({index: $index})" deploy-function="deployFunction({index: $index})"></projects-template>
     </div>  
@@ -75,9 +75,8 @@
             <textarea ng-model="user.message" type="text" rows="5"></textarea>
           </md-input-container>
         </div>
-        
         <md-card-actions layout="row" layout-align="end center">
-          <md-button>Submit</md-button>
+          <md-button ng-click="submitForm()">Submit</md-button>
         </md-card-actions>
       </md-card-content>
     </md-card>

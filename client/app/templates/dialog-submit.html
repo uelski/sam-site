@@ -1,0 +1,27 @@
+<md-dialog class="mdDialog">
+	<md-dialog-content class="dialogContent">
+		<div ng-show="showSubmit">
+			<div layout="row" layout-align="space-around">
+		      <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+		    </div>
+		    <div class="submit">Submitting...</div>
+		</div>
+		<div ng-show="showValidation">
+			<div layout="column">
+				<div>Please fix the following:</div>
+				<div class="dialogMessage error">{{validateMessage}}</div>
+			</div>
+		</div>
+		<div class="dialogMessage success" ng-show="showSuccess">
+			Message submitted. Thanks for reaching out!
+		</div>
+
+		<div class="dialogMessage error" ng-show="showError">
+			There was an error, please try again.
+		</div>
+	</md-dialog-content>
+
+	<md-dialog-actions layout="row">
+		<md-button ng-click="closeDialog()">Close</md-button>
+	</md-dialog-actions>
+</md-dialog>
