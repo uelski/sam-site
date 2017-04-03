@@ -226,6 +226,15 @@ $fadedBlack: rgba(0,0,0,0.75);
 .mdDialog {
   .dialogContent {
     padding: 20px;
+    .iconContainer {
+      .iconClass {
+        height: 50px;
+        width: 75px;
+      }
+      &.phone {
+        margin-right: 20px;
+      }
+    }
     .address {
       margin-top: 10px;
       @include fontMainBold;

@@ -1,7 +1,12 @@
-<md-dialog class="mdDialog" aria-label="email dialog">
-	<md-dialog-content class="dialogContent">
-		<div>Connect with me:</div>
-		<div class="address">sam.vburgh@gmail.com</div>
+<md-dialog class="mdDialog" layout="column" aria-label="email dialog">
+	<md-dialog-content layout="row" class="dialogContent">
+		<div flex class="iconContainer">
+			<md-icon class="iconClass" md-svg-src="/images/icon-mail-black.svg" aria-label="email icon"></md-icon>
+		</div>
+		<div class="contentContainer">
+			<div>Connect with me:</div>
+			<div class="address">sam.vburgh@gmail.com</div>
+		</div>
 	</md-dialog-content>
 	<md-dialog-actions layout="row">
 		<md-button ng-click="initiateEmail()">Email</md-button>

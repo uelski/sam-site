@@ -1,7 +1,12 @@
 <md-dialog class="mdDialog" aria-label="phone dialog">
-	<md-dialog-content class="dialogContent">
-		<div>Connect with me:</div>
-		<div class="address">(203) 240-9108</div>
+	<md-dialog-content layout="row" class="dialogContent">
+		<div flex="30" class="iconContainer phone">
+			<md-icon class="iconClass" md-svg-src="/images/icon-phone-black.svg" aria-label="email icon"></md-icon>
+		</div>
+		<div flex="70" class="contentContainer">
+			<div>Connect with me:</div>
+			<div class="address">(203) 240-9108</div>
+		</div>
 	</md-dialog-content>
 	<md-dialog-actions layout="row">
 		<md-button ng-click="initiateCall()">Call</md-button>
