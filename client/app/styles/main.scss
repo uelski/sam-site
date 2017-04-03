@@ -44,7 +44,7 @@ $fadedBlack: rgba(0,0,0,0.75);
   }
 }
 
-@mixin responsivePhone {
+@mixin responsiveSecondBreak {
   @media (max-width: 750px) {
     @content;
   }
@@ -52,6 +52,12 @@ $fadedBlack: rgba(0,0,0,0.75);
 
 @mixin responsiveXs {
   @media (max-width: 600px) {
+    @content;
+  }
+}
+
+@mixin responsivePhone {
+  @media (max-width: 480px) {
     @content;
   }
 }
@@ -111,7 +117,7 @@ $fadedBlack: rgba(0,0,0,0.75);
     }
   }
 
-  @include responsivePhone {
+  @include responsiveSecondBreak {
     padding-top: 30px;
     height: 300px;
     .content {
@@ -142,6 +148,22 @@ $fadedBlack: rgba(0,0,0,0.75);
         width: 40px;
         height: 40px;
       }
+    }
+  }
+
+  @include responsivePhone {
+    padding-top: 5px;
+    .content {
+      &.name {
+        font-size: 22px;
+        padding-bottom: 0;
+      }
+      &.title {
+        font-size: 16px;
+      }
+    }
+    .fabContainer {
+      bottom: 45px;
     }
   }
 }
@@ -179,7 +201,7 @@ $fadedBlack: rgba(0,0,0,0.75);
       line-height: 24px;
     }
   }
-  @include responsivePhone {
+  @include responsiveSecondBreak {
     .rightSection {
       margin-left: 5%;
       .header {
@@ -266,7 +288,7 @@ $fadedBlack: rgba(0,0,0,0.75);
       background-color: rgba(0,0,0,0.25);
     }
   }
-  @include responsivePhone {
+  @include responsiveSecondBreak {
     padding: 50px 0;
   }
 
@@ -323,7 +345,7 @@ $fadedBlack: rgba(0,0,0,0.75);
     border-bottom: 1px solid $primaryAccentColor;
     width: 25%;
   }
-  @include responsivePhone {
+  @include responsiveSecondBreak {
     .header {
       width: 36%;
     }
@@ -334,6 +356,11 @@ $fadedBlack: rgba(0,0,0,0.75);
     .header {
       font-size: 28px;
       padding: 10px 0;
+    }
+  }
+  @include responsivePhone {
+    .header {
+      width: 45%;
     }
   }
 }
@@ -387,6 +414,7 @@ $fadedBlack: rgba(0,0,0,0.75);
 .mdDialog {
   .dialogContent {
     padding: 20px;
+    padding-left: 10px;
     .iconContainer {
       .iconClass {
         height: 50px;
