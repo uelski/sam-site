@@ -64,16 +64,35 @@ $fadedBlack: rgba(0,0,0,0.75);
 
 
 
-.navBarContainer {
 
-  .navBar {
-    width: 100%;
+.navBar {
+  width: 100%;
 
-    .navButton {
-      span {
-        color: $primaryAccentColor;
-      }
+  .navButton {
+    span {
+      color: $primaryAccentColor;
     }
+  }
+}
+
+md-toolbar {
+  &.mobileToolbar {
+    background-color: white; 
+  }
+  md-icon {
+    height: 30px;
+    width: 30px;
+    opacity: 0.5;
+  }
+}
+
+.md-sidenav-left {
+  &.sideNav {
+    min-width: 0;
+    width: 50%;
+  }
+  .md-button {
+    text-align: left;
   }
 }
 
@@ -107,7 +126,7 @@ $fadedBlack: rgba(0,0,0,0.75);
       color: $primaryAccentColor;
     }
     .fabButton {
-      background-color: $darkBackgroundColor;
+      background-color: #78909C;
     }
   }
   @include responsiveDesktopBreak {
@@ -396,6 +415,9 @@ $fadedBlack: rgba(0,0,0,0.75);
   .fabContainer {
     padding: 20px 0;
     text-align: center;
+    .fabButton {
+      background-color: #00BCD4;
+    }
   }
 
 }

@@ -8,7 +8,7 @@
  * Controller of the clientApp
  */
 angular.module('clientApp')  
-  .controller('MainCtrl', ['$http', '$scope', '$rootScope', '$window', '$mdDialog', function ($http, $scope, $rootScope, $window, $mdDialog) {
+  .controller('MainCtrl', ['$http', '$scope', '$rootScope', '$window', '$mdDialog', '$mdSidenav', function ($http, $scope, $rootScope, $window, $mdDialog, $mdSidenav) {
     var req = $http.get('/api/data/buttons');
     var scope = this;
 
@@ -83,6 +83,10 @@ angular.module('clientApp')
 
     $scope.initiateCall = function() {
       $window.location.href = 'tel:+12032409108';
+    };
+
+    $scope.openSideNav = function() {
+      $mdSidenav('left').toggle();
     };
 
     $scope.user = {

@@ -1,10 +1,30 @@
-<div layout="row" class="navBarContainer">
-  <md-nav-bar class="navBar" md-no-ink-bar="true" md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
-    <md-nav-item class="navButton" md-nav-href="#aboutSection" name="about">About Me</md-nav-item>
-    <md-nav-item class="navButton" md-nav-href="#projectSection" name="projects">Projects</md-nav-item>
-    <md-nav-item class="navButton" md-nav-href="#contactSection" name="contact">Get in Touch</md-nav-item>
-  </md-nav-bar>
-</div>
+
+<md-nav-bar class="navBar" md-no-ink-bar="true" md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links" hide-xs>
+  <md-nav-item class="navButton" md-nav-href="#aboutSection" name="about">About Me</md-nav-item>
+  <md-nav-item class="navButton" md-nav-href="#projectSection" name="projects">Projects</md-nav-item>
+  <md-nav-item class="navButton" md-nav-href="#contactSection" name="contact">Get in Touch</md-nav-item>
+</md-nav-bar>
+<md-toolbar layout="row" class="mobileToolbar" show-xs hide-gt-xs>
+  <div class="md-toolbar-tools">
+    <md-button class="md-icon-button" aria-label="Icon Button" ng-click="openSideNav()">
+      <md-icon md-svg-src="/images/icon-menu-black.svg" aria-label="menu icon"></md-icon>
+    </md-button>
+  </div>
+</md-toolbar>
+
+<md-sidenav layout="row" md-component-id="left" class="md-sidenav-left sideNav">
+  <md-content layout="column">
+      <md-button ng-click="closeSideNav()" class="md-primary">
+        About
+      </md-button>
+      <md-button ng-click="closeSideNav()" class="md-primary">
+        Projects
+      </md-button>
+      <md-button ng-click="closeSideNav()" class="md-primary">
+        Contact
+      </md-button>
+  </md-content>
+</md-sidenav>
 
 <div layout="column" class="landingSection">
   <div flex-offset="10">
