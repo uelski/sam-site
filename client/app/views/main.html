@@ -1,8 +1,8 @@
 
 <md-nav-bar class="navBar" md-no-ink-bar="true" md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links" hide-xs>
-  <md-nav-item class="navButton" md-nav-href="#aboutSection" name="about">About Me</md-nav-item>
-  <md-nav-item class="navButton" md-nav-href="#projectSection" name="projects">Projects</md-nav-item>
-  <md-nav-item class="navButton" md-nav-href="#contactSection" name="contact">Get in Touch</md-nav-item>
+  <md-nav-item class="navButton" md-nav-click="scrollTo('aboutSection')" name="about">About Me</md-nav-item>
+  <md-nav-item class="navButton" md-nav-click="scrollTo('projectSection')" name="projects">Projects</md-nav-item>
+  <md-nav-item class="navButton" md-nav-click="scrollTo('contactSection')" name="contact">Get in Touch</md-nav-item>
 </md-nav-bar>
 <md-toolbar layout="row" class="mobileToolbar" show-xs hide-gt-xs>
   <div class="md-toolbar-tools">
@@ -12,15 +12,18 @@
   </div>
 </md-toolbar>
 
-<md-sidenav layout="row" md-component-id="left" class="md-sidenav-left sideNav">
+<md-sidenav layout="column" md-component-id="left" class="md-sidenav-left sideNav">
+  <md-toolbar class="">
+    <h1 class="md-toolbar-tools">Menu</h1>
+  </md-toolbar>
   <md-content layout="column">
-      <md-button ng-click="closeSideNav()" class="md-primary">
+      <md-button ng-click="closeSideNav('aboutSection')" class="md-primary">
         About
       </md-button>
-      <md-button ng-click="closeSideNav()" class="md-primary">
+      <md-button ng-click="closeSideNav('projectSection')" class="md-primary">
         Projects
       </md-button>
-      <md-button ng-click="closeSideNav()" class="md-primary">
+      <md-button ng-click="closeSideNav('contactSection')" class="md-primary">
         Contact
       </md-button>
   </md-content>

@@ -89,6 +89,19 @@ angular.module('clientApp')
       $mdSidenav('left').toggle();
     };
 
+    $scope.scrollTo = function(section) {
+      var target = document.getElementById(section);
+      target.scrollIntoView();
+    };
+
+    $scope.closeSideNav = function(arg) {
+
+        $scope.scrollTo(arg);
+        $mdSidenav('left').toggle();
+    };
+
+
+
     $scope.user = {
       'name': '',
       'email': '',
