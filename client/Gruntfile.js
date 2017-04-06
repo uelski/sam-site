@@ -429,6 +429,12 @@ module.exports = function (grunt) {
           ]
         }, {
           expand: true,
+          dot: true,
+          cwd: 'bower_components/angular-material',
+          dest: '<%= yeoman.dist %>',
+          src: '{,*/}*.css'
+        }, {
+          expand: true,
           cwd: '.tmp/images',
           dest: '<%= yeoman.dist %>/images',
           src: ['generated/*']

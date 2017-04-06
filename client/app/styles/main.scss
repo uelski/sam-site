@@ -83,12 +83,12 @@ $fadedBlack: rgba(0,0,0,0.75);
 
 md-toolbar {
   &.mobileToolbar {
-    background-color: white; 
+    background-color: #343434; 
   }
   md-icon {
     height: 30px;
     width: 30px;
-    opacity: 0.5;
+    // opacity: 0.5;
   }
 }
 

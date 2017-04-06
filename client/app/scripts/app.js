@@ -40,9 +40,10 @@ angular
       scope: {
         rippleColor: '@rippleColor',
         button: '=',
-        buttonFunction: '&'
+        buttonFunction: '&',
+        getButton: '&'
       },
-      templateUrl: 'templates/directive-fab-template.html'
+      templateUrl: 'views/directive-fab-template.html'
     };
   }])
    .directive('projectsTemplate', [function() {
@@ -53,6 +54,6 @@ angular
         githubFunction: '&',
         deployFunction: '&'
       },
-      templateUrl: 'templates/directive-projects-template.html'
+      templateUrl: 'views/directive-projects-template.html'
     };
   }]);

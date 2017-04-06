@@ -52,9 +52,9 @@ angular.module('clientApp')
     $scope.openDialog = function(arg) {
       var templateUrl = '';
       if (arg === 'mail') {
-        templateUrl = '/templates/dialog-email.html';
+        templateUrl = 'views/dialog-email.html';
       } else if (arg === 'call') {
-        templateUrl = '/templates/dialog-phone.html';
+        templateUrl = 'views/dialog-phone.html';
       }
 
       $mdDialog.show({
@@ -67,7 +67,9 @@ angular.module('clientApp')
 
     };
 
+
     $scope.closeDialog = function() {
+
       $mdDialog.hide();
     };
 
@@ -94,7 +96,6 @@ angular.module('clientApp')
     };
 
     $scope.closeSideNav = function(arg) {
-
         $scope.scrollTo(arg);
         $mdSidenav('left').toggle();
     };
@@ -160,7 +161,7 @@ angular.module('clientApp')
     $scope.submitDialog = function(submit, validate, message, user) {
       
       $mdDialog.show({
-        templateUrl: '/templates/dialog-submit.html',
+        templateUrl: 'views/dialog-submit.html',
         parent: angular.element(document.body),
         locals: {
           validateMessage: message,
