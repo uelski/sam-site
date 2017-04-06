@@ -68,7 +68,6 @@ angular.module('clientApp')
     };
 
     $scope.closeDialog = function() {
-      console.log('close dialog');
       $mdDialog.hide();
     };
 
