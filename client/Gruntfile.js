@@ -431,7 +431,7 @@ module.exports = function (grunt) {
           expand: true,
           dot: true,
           cwd: 'bower_components/angular-material',
-          dest: '<%= yeoman.dist %>',
+          dest: '<%= yeoman.dist %>/styles',
           src: '{,*/}*.css'
         }, {
           expand: true,
