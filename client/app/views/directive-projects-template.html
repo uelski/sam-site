@@ -3,7 +3,7 @@
 	<div class="projectInfo">{{project.content}}</div>
 	<div class="btnContainer">
 	  <md-button ng-if="project.github === 'true'" ng-click="githubFunction()">View on Github</md-button>
-	  <md-button class="md-raised" ng-click="deployFunction()">Launch Website</md-button>
+	  <md-button ng-if="project.url === 'true'" class="md-raised" ng-click="deployFunction()">Launch Website</md-button>
 	</div>
 	<hr>
 </div>
