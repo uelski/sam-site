@@ -65,7 +65,7 @@ router.get('/projects', function(req, res, next) {
         github: "true",
         githubUrl: "https://github.com/uelski/new-cos",
         url: "true",
-        deployUrl: "https://uelski-cos.appspot.com/"
+        deployUrl: "http://www.masoncos.com/"
       },
       {
         iconSrc: "/images/icon-home-black.svg",
